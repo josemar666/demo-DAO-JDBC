@@ -14,12 +14,12 @@ public class Program {
        
        SellerDao sellerdao = DaoFactory.createSellerDao();
        
-       System.out.println("==========teste1 : SELLER  findById ===================================");
+       System.out.println("==========teste1 : SELLER  findById ========================================");
        Seller sle = sellerdao.findByid(3);
        
        System.out.println(sle);
        
-       System.out.println("\n==========teste2 : SELLER  findByDepartment ===============================");
+       System.out.println("\n==========teste2 : SELLER  findByDepartment ==========================================");
        Department dep = new Department(2,null);
        List<Seller> lista = sellerdao.findByDepartment(dep);
        

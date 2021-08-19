@@ -28,6 +28,15 @@ public class Program {
     	   System.out.println(e);
        }
        
+       System.out.println("\n==========teste3 : SELLER  findAll() ==========================================");
+       
+        lista = sellerdao.findAll();
+       
+       for(Seller e : lista) {
+    	   
+    	   System.out.println(e);
+       }
+       
 	}
 
 }

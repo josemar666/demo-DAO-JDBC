@@ -23,7 +23,7 @@ public class Program {
        System.out.println(sle);
        
        System.out.println("\n==========teste2 : SELLER  findByDepartment ==========================================");
-       Department dep = new Department(4,null);
+       Department dep = new Department(1,null);
        List<Seller> lista = sellerdao.findByDepartment(dep);
        
        for(Seller e : lista) {
@@ -52,7 +52,7 @@ public class Program {
  System.out.println("\n==========teste 5  : SELLER  Update() ==========================================");
        
        
-       Seller atua = new  Seller(10,"diogo moia" , "moia@gmail.com" , new Date() , 2000.00 , dep);
+       Seller atua = new  Seller(11,"mastra cardoso" , "mastra@gmail.com" , new Date() , 5000.00 , dep);
        sellerdao.update(atua);
        
        System.out.println("UPDATE COMPLETADO !!!");

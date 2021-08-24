@@ -1,6 +1,8 @@
 package aplicattion;
 
 
+import java.util.List;
+
 import model.DAO.DaoFactory;
 import model.DAO.DepartmentDao;
 import model.entites.Department;
@@ -65,10 +67,22 @@ public class Program {
        
       // System.out.println("===========================PROGRAMA 2 =====================================================");
        
-       System.out.println("=======================TESTE 1 Department  findById======================================== ");
+      // System.out.println("=======================TESTE 1 Department  findById======================================== ");
        DepartmentDao departmento = DaoFactory.creteDeaprtmentDao();
-       Department u = departmento.findByid(1);
-       System.out.println(u);
+       //Department u = departmento.findByid(1);
+       //System.out.println(u);
+       
+       
+       System.out.println("=======================TESTE 2 Department   findAll()===========================================");
+        List<Department> lista = departmento.findAll();
+        for(Department cu : lista) {
+        	
+        	System.out.println(cu);
+        }
+       
+       
+       
+       
 	}
 
 }

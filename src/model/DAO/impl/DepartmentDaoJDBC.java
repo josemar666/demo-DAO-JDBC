@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import db.DB;
 import db.DbException;
@@ -74,8 +77,37 @@ public DepartmentDaoJDBC(Connection com) {
 
 	@Override
 	public List<Department> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		PreparedStatement st = null;
+		   ResultSet rs = null;
+		   
+		   
+		   try {
+			   com = DB.getConnection();
+			   st = com.prepareStatement("SELECT * from Department " + 
+			   		 			   		" ORDER BY Name");
+			   			       
+			        rs = st.executeQuery();
+			        List<Department> lista = new ArrayList<>();
+			        Map<Integer , Department> map = new HashMap<>();
+			        while(rs.next()) {
+			        	
+			        	Department dep = map.get(rs.getInt("Id"));
+			        	 if(dep == null) {
+				        	    dep = instantiateDepartment(rs);
+				        	   map.put(rs.getInt("Id"), dep);
+				           }
+			        	 lista.add(dep);
+			        	
+			        }
+		return lista;
+	}catch(SQLException e) {
+		throw new DbException(e.getMessage());
+	}finally{
+	   DB.closeStatement(st);
+       DB.closeResultSet(rs);
+       
+		
+	}
 	}
 
 }

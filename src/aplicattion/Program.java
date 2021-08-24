@@ -67,10 +67,10 @@ public class Program {
        
       // System.out.println("===========================PROGRAMA 2 =====================================================");
        
-      // System.out.println("=======================TESTE 1 Department  findById======================================== ");
+       System.out.println("=======================TESTE 1 Department  findById======================================== ");
        DepartmentDao departmento = DaoFactory.creteDeaprtmentDao();
-       //Department u = departmento.findByid(1);
-       //System.out.println(u);
+       Department u = departmento.findByid(1);
+       System.out.println(u);
        
        
        System.out.println("=======================TESTE 2 Department   findAll()===========================================");
@@ -79,8 +79,11 @@ public class Program {
         	
         	System.out.println(cu);
         }
-       
-       
+        
+        System.out.println("=========================TESTE 3 Department insert()==============================================");
+       Department derp3 = new Department(null, "sexyshoping");
+       departmento.insert(derp3);
+       System.out.println("NOVO id INSERIDO : "  +  derp3);
        
        
 	}

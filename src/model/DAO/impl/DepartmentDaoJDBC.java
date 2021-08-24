@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,7 +25,36 @@ public DepartmentDaoJDBC(Connection com) {
 	
 	@Override
 	public void insert(Department obj) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		try {
+			st = com.prepareStatement("  INSERT INTO Department(Name)  VALUES(?)" , Statement.RETURN_GENERATED_KEYS);
+			st.setString(1, obj.getName());
+			
+			int executelinhas = st.executeUpdate();
+			if(executelinhas > 0) {
+				ResultSet rs = st.getGeneratedKeys();
+				if(rs.next()) {
+					int id = rs.getInt(1);
+					obj.setId(id);
+					
+								}
+				
+				DB.closeResultSet(rs);
+			}
+				else {
+					
+					throw new DbException("ERRO INESPERADO NENHUMA LINHA FOI AFETADA !!!");
+				}
+			
+			
+		}catch(SQLException e) {
+			
+			throw new DbException ("erro não foi concluida a operação !!!!");
+			
+		}finally {
+			
+			DB.closeStatement(st);
+		}
 		
 	}
 

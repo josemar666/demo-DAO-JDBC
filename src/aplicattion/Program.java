@@ -1,46 +1,41 @@
 package aplicattion;
 
 
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
-
 import model.DAO.DaoFactory;
-import model.DAO.SellerDao;
+import model.DAO.DepartmentDao;
 import model.entites.Department;
-import model.entites.Seller;
 
 public class Program {
 
 	public static void main(String[] args) {
 	  
 		
-		Scanner sc = new Scanner(System.in);
+		
        
-       SellerDao sellerdao = DaoFactory.createSellerDao();
+      // SellerDao sellerdao = DaoFactory.createSellerDao();
        
-       System.out.println("==========teste1 : SELLER  findById ========================================");
-       Seller sle = sellerdao.findByid(3);
+      // System.out.println("==========teste1 : SELLER  findById ========================================");
+       //Seller sle = sellerdao.findByid(3);
        
-       System.out.println(sle);
+      // System.out.println(sle);
        
-       System.out.println("\n==========teste2 : SELLER  findByDepartment ==========================================");
-       Department dep = new Department(1,null);
-       List<Seller> lista = sellerdao.findByDepartment(dep);
+       //System.out.println("\n==========teste2 : SELLER  findByDepartment ==========================================");
+       //Department dep = new Department(1,null);
+       //List<Seller> lista = sellerdao.findByDepartment(dep);
        
-       for(Seller e : lista) {
+      // for(Seller e : lista) {
     	   
-    	   System.out.println(e);
-       }
+    	//   System.out.println(e);
+      // }
        
-       System.out.println("\n==========teste3 : SELLER  findAll() ==========================================");
+       //System.out.println("\n==========teste3 : SELLER  findAll() ==========================================");
        
-        lista = sellerdao.findAll();
+      //  lista = sellerdao.findAll();
        
-       for(Seller e : lista) {
+      // for(Seller e : lista) {
     	   
-    	   System.out.println(e);
-       }
+    	//   System.out.println(e);
+       //}
        
        
      //  System.out.println("\n==========teste4 : SELLER  insert() ==========================================");
@@ -60,13 +55,20 @@ public class Program {
        //System.out.println("UPDATE COMPLETADO !!!");
        
        
-       System.out.println("\n==========teste 6  : SELLER  Delete() ==========================================");
-       System.out.println(" entre o ID do vendedor que vai ser deletado : ");
-       int deletar = sc.nextInt();
-       sellerdao.deleteByid(deletar);
-       System.out.println("o ID deletado foi : " + deletar);
+      // System.out.println("\n==========teste 6  : SELLER  Delete() ==========================================");
+      // System.out.println(" entre o ID do vendedor que vai ser deletado : ");
+      // int deletar = sc.nextInt();
+      // sellerdao.deleteByid(deletar);
+       //System.out.println("o ID deletado foi : " + deletar);
        
-       sc.close();
+      // sc.close();
+       
+      // System.out.println("===========================PROGRAMA 2 =====================================================");
+       
+       System.out.println("=======================TESTE 1 Department  findById======================================== ");
+       DepartmentDao departmento = DaoFactory.creteDeaprtmentDao();
+       Department u = departmento.findByid(1);
+       System.out.println(u);
 	}
 
 }

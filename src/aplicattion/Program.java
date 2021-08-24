@@ -2,6 +2,7 @@ package aplicattion;
 
 
 import java.util.List;
+import java.util.Scanner;
 
 import model.DAO.DaoFactory;
 import model.DAO.DepartmentDao;
@@ -12,7 +13,7 @@ public class Program {
 	public static void main(String[] args) {
 	  
 		
-		
+		Scanner sc = new Scanner(System.in);
        
       // SellerDao sellerdao = DaoFactory.createSellerDao();
        
@@ -80,12 +81,21 @@ public class Program {
         	System.out.println(cu);
         }
         
-        System.out.println("=========================TESTE 3 Department insert()==============================================");
-       Department derp3 = new Department(null, "sexyshoping");
-       departmento.insert(derp3);
-       System.out.println("NOVO id INSERIDO : "  +  derp3);
+      //  System.out.println("=========================TESTE 3 Department insert()==============================================");
+      // Department derp3 = new Department(null, "sexyshoping");
+      // departmento.insert(derp3);
+      // System.out.println("NOVO id INSERIDO : "  +  derp3);
        
+       //System.out.println("========================TESTE 4 Department update()=================================================");
+       //Department atual = new Department(3,"armas");
+       //departmento.update(atual);
+       //System.out.println("DADOS DO DEPARTAMENTO ATUALIZADOS COM SUCESSO : " );
        
+       System.out.println("========================TESTE  5 Department delete()====================================================");
+       System.out.println(" entre o ID do vendedor que vai ser deletado : ");
+       int deletar = sc.nextInt();
+       departmento.deleteByid(deletar);
+       System.out.println("o ID deletado foi : " + deletar);
 	}
 
 }

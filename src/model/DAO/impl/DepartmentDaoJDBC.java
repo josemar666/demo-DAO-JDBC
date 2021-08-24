@@ -60,13 +60,44 @@ public DepartmentDaoJDBC(Connection com) {
 
 	@Override
 	public void update(Department obj) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		try {
+			st = com.prepareStatement("UPDATE Department SET Name = ?  WHERE Id = ?" , Statement.RETURN_GENERATED_KEYS);
+			
+			st.setString(1, obj.getName());
+			st.setInt(2, obj.getId());
+			
+			st.executeUpdate();
+			
+			
+		}catch(SQLException e) {
+			throw new DbException ("erro não foi concluida a operação !!!!");
+			
+		}finally {
+			
+			DB.closeStatement(st);
+		}
 		
 	}
 
 	@Override
 	public void deleteByid(Integer id) {
-		// TODO Auto-generated method stub
+		PreparedStatement st = null;
+		try {
+			
+			st = com.prepareStatement("DELETE FROM Department WHERE Id = ?");
+			
+			st.setInt(1, id);
+			st.executeUpdate();
+			
+			
+			
+		}catch(SQLException e) {
+			throw new DbException(e.getMessage());
+		}finally {
+			
+			 DB.closeStatement(st);
+		}
 		
 	}
 
